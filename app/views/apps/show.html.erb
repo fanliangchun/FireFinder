@@ -1,0 +1,11 @@
+<div class="container">
+	<h1><%= @app.title %></h1>
+	<hr>
+		<p>
+			<%= simple_format(@app.description) %>
+		</p>
+		<div><%= @app.created_at.strftime("%Y-%m-%d") %></div>
+	<div>
+		<%= link_to("返回列表", apps_path, class: "btn btn-xs btn-success") %>
+	</div>
+</div>

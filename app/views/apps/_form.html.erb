@@ -1,0 +1,5 @@
+<%= simple_form_for @app do |f| %>
+<%= f.input :title %>
+<%= f.input :description %>
+<%= f.submit "Submit", disable_with: "Submiting...", class: "btn btn-default" %>
+<% end %>

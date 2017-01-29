@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="pull-right">
+		<%= link_to("新增小程序", new_app_path, class: "btn btn-default")  %>
+	</div>
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>名称</th>
+				<th>描述</th>
+				<th>管理</th>
+				<th>时间</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @apps.each do |app| %>
+				<tr>
+					<td><%= link_to app.title, app_path(app) %></td>
+					<td><%= simple_format(app.description) %></td>
+					<td>
+					<%= link_to("Edit", edit_app_path(app)) %>
+					<%= link_to("Destroy", app_path(app), method: :delete, data: {confirm: "Are you sure?"}) %>
+					</td>
+					<td><%= app.created_at.strftime("%Y-%m-%d") %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
