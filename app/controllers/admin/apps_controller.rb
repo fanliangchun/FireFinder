@@ -1,7 +1,7 @@
 class Admin::AppsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :find_app, only: [:show, :edit, :update, :destroy]
-
+	before_action :admin_required
 	def index
 		@apps = App.all
 	end
