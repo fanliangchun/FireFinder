@@ -1,5 +1,6 @@
 class App < ApplicationRecord
 	validates :title, presence: true
+	belongs_to :user
 
 	def publish!
 		self.is_hidden = false

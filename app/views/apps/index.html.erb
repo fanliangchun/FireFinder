@@ -9,6 +9,7 @@
 				<th>名称</th>
 				<th>描述</th>
 				<th>管理</th>
+				<th>分享者</th>
 				<th>时间</th>
 			</tr>
 		</thead>
@@ -19,9 +20,12 @@
 					<td><%= link_to app.title, app_path(app) %></td>
 					<td><%= simple_format(app.description) %></td>
 					<td>
-					<%= link_to("Edit", edit_app_path(app)) %>
-					<%= link_to("Destroy", app_path(app), method: :delete, data: {confirm: "Are you sure?"}) %>
+						<% if current_user && current_user== app.user %>
+						<%= link_to("Edit", edit_app_path(app)) %>
+						<%= link_to("Destroy", app_path(app), method: :delete, data: {confirm: "Are you sure?"}) %>
+						<% end %>
 					</td>
+					<td><%= app.user.email %></td>
 					<td><%= app.created_at.strftime("%Y-%m-%d") %></td>
 				</tr>
 			<% end %>
