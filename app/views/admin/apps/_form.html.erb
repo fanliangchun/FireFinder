@@ -1,0 +1,6 @@
+<div class="container">
+	<%= simple_form_for [:admin, @app] do |f| %>
+	<%= f.input :title %>
+	<%= f.input :description %>
+	<%= f.submit "Submit", disable_with: "Submiting...", class: "btn btn-default" %>
+</div>
