@@ -14,11 +14,12 @@
 	</div>
 	</div>
 
-	<div class="container>
-
+	<div class="container">
+	
 		<div class="row text-center">
 			<% @apps.each do |app| %>
 				<div class="col-xs-6 col-md-3">
+
 					<%= link_to app_path(app) do  %>
 						
 						<% if app.image.present? %>
@@ -26,8 +27,11 @@
 						<% else %>
 							<%= image_tag("http://placehold.it/100x100&text=No Pic", class: "thumbnail") %>
 						<% end %>
-						<%= app.title %>
+						
 					<% end %>
+					<div class="text-center">
+						<h3><%= app.title %></h3>
+					</div>
 
 			</div>
 		<% end %>

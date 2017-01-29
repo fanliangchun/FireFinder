@@ -18,6 +18,7 @@ class Admin::AppsController < ApplicationController
 		@app = App.new(app_params)
 		@app.user = current_user
 		if @app.save
+
 			redirect_to admin_apps_path
 		else
 			render :new
