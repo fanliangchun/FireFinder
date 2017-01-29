@@ -2,4 +2,14 @@
 
 <hr>
 
-<%= render "form" %>
+<%= simple_form_for @app do |f| %>
+<%= f.input :title %>
+<%= f.input :description %>
+<% if @app.image.present? %>
+	<span><strong>当前程序图片</strong></span><br>
+	<%= image_tag(@app.image.thumb.url) %>
+<% end %>
+<%= f.input :image, as: :file %>
+<%= f.input :is_hidden %>
+<%= f.submit "Submit", disable_with: "Submiting...", class: "btn btn-default" %>
+<% end %>

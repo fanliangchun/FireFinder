@@ -16,7 +16,7 @@ class Admin::AppsController < ApplicationController
 
 	def create
 		@app = App.new(app_params)
-
+		@app.user = current_user
 		if @app.save
 			redirect_to admin_apps_path
 		else
@@ -53,7 +53,7 @@ class Admin::AppsController < ApplicationController
 	private
 
 	def app_params
-		params.require(:app).permit(:title, :description, :is_hidden)
+		params.require(:app).permit(:title, :description, :is_hidden, :image)
 	end
 
 	def find_app
