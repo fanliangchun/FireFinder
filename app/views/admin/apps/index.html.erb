@@ -14,7 +14,10 @@
 		<tbody>
 			<% @apps.each do |app| %>
 				<tr>
-					<td><%= link_to app.title, admin_app_path(app) %></td>
+					<td>
+						<%= render_app_status(app) %>
+						<%= link_to app.title, admin_app_path(app) %>
+					</td>
 					<td>
 						<%= link_to("Edit", edit_admin_app_path(app)) %>
 						<%= link_to("Destroy", admin_app_path(app), method: :delete, data: { confirm: "Are you sure?"}) %>

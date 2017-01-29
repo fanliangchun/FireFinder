@@ -3,7 +3,7 @@ class AppsController < ApplicationController
 	before_action :find_app, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@apps = App.all
+		@apps = App.where(is_hidden: false).order("created_at DESC")
 	end
 
 	def show
@@ -42,7 +42,7 @@ class AppsController < ApplicationController
 	private
 
 	def app_params
-		params.require(:app).permit(:title, :description)
+		params.require(:app).permit(:title, :description, :is_hidden)
 	end
 
 	def find_app

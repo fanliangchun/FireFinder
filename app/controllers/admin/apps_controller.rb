@@ -42,7 +42,7 @@ class Admin::AppsController < ApplicationController
 	private
 
 	def app_params
-		params.require(:app).permit(:title, :description)
+		params.require(:app).permit(:title, :description, :is_hidden)
 	end
 
 	def find_app
