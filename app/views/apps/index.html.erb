@@ -1,34 +1,38 @@
 <div class="container">
-	<div class="pull-right" style="padding-bottom: 30px;">
-		<%= link_to("新增小程序", new_app_path, class: "btn btn-default")  %>
+	<div class="jumbotron text-center">
+		<h2>FireFinder微信小程序</h2>
+		<h4>分享/发现/创造</h4>
+		<p>来FireFinder找到想要的，让一切变得简单；来FireFinder分享，让生活变得美好！</p>
+		<form class="form-inline">
+    <div class="input-group">
+      <input type="search" class="form-control" size="50" placeholder="搜索微信小程序" required>
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-warning">发现好程序</button>
+      </div>
+    </div>
+  </form>
+	</div>
 	</div>
 
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th>名称</th>
-				<th>描述</th>
-				<th>管理</th>
-				<th>分享者</th>
-				<th>时间</th>
-			</tr>
-		</thead>
+	<div class="container>
 
-		<tbody>
+		<div class="row text-center">
 			<% @apps.each do |app| %>
-				<tr>
-					<td><%= link_to app.title, app_path(app) %></td>
-					<td><%= simple_format(app.description) %></td>
-					<td>
-						<% if current_user && current_user== app.user %>
-						<%= link_to("Edit", edit_app_path(app)) %>
-						<%= link_to("Destroy", app_path(app), method: :delete, data: {confirm: "Are you sure?"}) %>
+				<div class="col-xs-6 col-md-3">
+					<%= link_to app_path(app) do  %>
+						
+						<% if app.image.present? %>
+							<%= image_tag(app.image.thumb.url, class: "thumbnail") %>
+						<% else %>
+							<%= image_tag("http://placehold.it/100x100&text=No Pic", class: "thumbnail") %>
 						<% end %>
-					</td>
-					<td><%= app.user.email %></td>
-					<td><%= app.created_at.strftime("%Y-%m-%d") %></td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
-</div>
+						<%= app.title %>
+					<% end %>
+
+			</div>
+		<% end %>
+
+	</div>
+	
+
+

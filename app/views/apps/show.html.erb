@@ -4,8 +4,14 @@
 		<p>
 			<%= simple_format(@app.description) %>
 		</p>
-		<div><%= @app.created_at.strftime("%Y-%m-%d") %></div>
+		<div>发表时间：<%= @app.created_at.strftime("%Y-%m-%d") %></div>
 	<div style="padding-top: 30px;">
 		<%= link_to("返回列表", apps_path, class: "btn btn-xs btn-success") %>
+			<div class="text-center">
+				<% if current_user && current_user == @app.user %>
+					<%= link_to("编辑", edit_app_path(@app), class: "btn btn-xs btn-default") %>
+					<%= link_to("删除", app_path(@app), class: "btn btn-xs btn-default") %>
+				<% end %>
+			</div>
 	</div>
 </div>
