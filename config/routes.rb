@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :apps
+  resources :apps do
+    resources :comments
+  end
   root 'apps#index'
 
   namespace :admin do
