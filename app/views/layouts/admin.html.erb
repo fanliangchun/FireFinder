@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FireFinder</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div class="container">
+  	<%= render 'common/navbar'  %>
+  	<%= render 'common/flashes' %>
+    <div class="row">
+      <div class="col-md-2">
+        <ul class="nav nav-pills nav-stacked" style="padding-top: 30px;">
+          <li class="active"><%= link_to("后台管理", admin_apps_path)  %></li>
+          <li><%= link_to("新增小程序", new_admin_app_path) %></li>
+          <li><%= link_to("返回首页", apps_path)  %></li>
+        </ul>
+      </div>
+      <div class="col-md-10">
+        <%= yield %>
+      </div>
+    </div>
+
+ 
+  	
+  </div>
+    <%= render 'common/footer' %>
+  </body>
+</html>

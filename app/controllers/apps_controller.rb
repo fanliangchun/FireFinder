@@ -7,6 +7,10 @@ class AppsController < ApplicationController
 	end
 
 	def show
+		if @app.is_hidden
+			flash[:warning] = "This app is already archieved."
+			redirect_to '/'
+		end
 	end
 
 	def new
