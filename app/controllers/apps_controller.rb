@@ -7,6 +7,7 @@ class AppsController < ApplicationController
 	end
 
 	def show
+		@comments = @app.comments
 		if @app.is_hidden
 			flash[:warning] = "This app is already archieved."
 			redirect_to '/'

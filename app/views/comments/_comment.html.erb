@@ -1,0 +1,30 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th>内容</th>
+			<th>管理</th>
+			<th>评论者</th>
+			<th>时间</th>
+		</tr>
+
+		<tbody>
+			<% @comments.each do |comment| %>
+				<tr>
+					<td><%= comment. content %></td>
+					<td>
+					<% if current_user && current_user == @app.user %>
+						<%= link_to("编辑评论", edit_app_comment_path(@app), class: "btn btn-xs btn-default") %>
+						<%= link_to("删除评论", app_comment_path(@app), method: :delet, data: { confirm: "Are you sure?" }, class: "btn btn-xs btn-default") %>
+					<% end %>
+					</td>
+					<td><%= comment.user.email %></td>
+					<td><%= comment.created_at.strftime("%Y-%m-%d") %></td>
+				</tr>
+		 		 <% end %>
+		</tbody>
+	</thead>
+</table>
+
+
+
+

@@ -1,4 +1,5 @@
 <div class="container">
+<div class="row">
 	<div class="col-md-6">
 		<% if @app.image.present? %>
 			<%= image_tag(@app.image.medium.url, class: "thumbnail") %>
@@ -15,16 +16,45 @@
 				</p>
 			</div>
 			<div>发表时间：<%= @app.created_at.strftime("%Y-%m-%d") %></div><br>
-			
-		
 			<div class="btn-group btn-group-justified">
 				<% if current_user && current_user == @app.user %>
 					<%= link_to("编辑", edit_app_path(@app), class: "btn btn-xs btn-default") %>
 					<%= link_to("删除", app_path(@app), class: "btn btn-xs btn-default") %>
-					<%= link_to("返回列表", apps_path, class: "btn btn-xs btn-default") %>
+					
 				<% end %>
 			</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6">
+
+<h2>Comments</h2>
+<% @app.comments.each do |comment| %>
+  <p>
+    <b>评论者:</b>
+    <%= current_user.email %> / <%= comment.created_at.strftime("%Y-%m-%d") %>
+  </p>
+ 
+  <p>
+    <b>评论:</b>
+
+    <%= comment.content %>
+  </p>
+<% end %>
+ 
+<h2>添加评论:</h2>
+<%=  simple_form_for([@app, @app.comments.build]) do |f| %>
+
+	<%= f.input :content %>
+	<%= f.submit "提交评论", disable_with: "Submiting...", class: "btn btn-default" %>
+<% end %>
+ 
+<br />
+
+
+
+</div>
+
 	
-	</div>	
 </div>
 
