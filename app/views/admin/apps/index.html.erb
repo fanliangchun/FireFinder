@@ -5,6 +5,7 @@
 		<thead>
 			<tr>
 				<th>程序名</th>
+				<th>类别</th>
 				<th>管理选项</th>
 				<th>分享者</th>
 				<th>发布时间</th>
@@ -17,6 +18,7 @@
 						<%= render_app_status(app) %>
 						<%= link_to app.title, admin_app_path(app) %>
 					</td>
+					<td><%= app.category_id %></td>
 					<td>
 						<%= link_to("Edit", edit_admin_app_path(app)) %>
 						<%= link_to("Destroy", admin_app_path(app), method: :delete, data: { confirm: "Are you sure?"}) %>
