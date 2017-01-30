@@ -3,7 +3,12 @@ class AppsController < ApplicationController
 	before_action :find_app, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@apps = App.where(is_hidden: false).order("created_at DESC")
+		if params[:category].blank?
+			@apps = App.where(is_hidden: false).order("created_at DESC")
+		else
+			@category_id = Category.find_by(name: params[:category]).id
+			@apps = App.where(:category_id => @category_id).order("created_at DESC")
+		end
 	end
 
 	def show
@@ -16,11 +21,13 @@ class AppsController < ApplicationController
 
 	def new
 		@app = App.new
+		@categories = Category.all.map { |c| [c.name, c.id] }
 	end
 
 	def create
 		@app = App.new(app_params)
 		@app.user = current_user
+		@app.category_id = params[:category_id]
 
 		if @app.save
 			redirect_to apps_path
@@ -30,9 +37,11 @@ class AppsController < ApplicationController
 	end
 
 	def edit
+		@categories = Category.all.map { |c| [c.name, c.id] }
 	end
 
 	def update
+		@app.category_id = params[:category_id]
 		if @app.update(app_params)
 			redirect_to apps_path, notice: "App Updated"
 		else
@@ -48,7 +57,7 @@ class AppsController < ApplicationController
 	private
 
 	def app_params
-		params.require(:app).permit(:title, :description, :is_hidden, :image)
+		params.require(:app).permit(:title, :description, :is_hidden, :image, :category_id)
 	end
 
 	def find_app

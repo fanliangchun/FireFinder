@@ -17,6 +17,10 @@
 	<div class="container">
 	
 		<div class="row text-center">
+		<h1 class="current-category"><%= params[:category] %></h1>
+			<% if @apps.count == 0 %>
+				<h1>Hi!，该类别没有小程序哦！</h1>
+			<% else %>
 			<% @apps.each do |app| %>
 				<div class="col-xs-6 col-md-3">
 
@@ -32,8 +36,8 @@
 					<div class="text-center">
 						<h3><%= app.title %></h3>
 					</div>
-
 			</div>
+			<% end %>
 		<% end %>
 
 	</div>

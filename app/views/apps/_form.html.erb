@@ -2,7 +2,8 @@
 <%= f.input :title %>
 <%= f.input :description %>
 <%= f.label :image, as: :file %>
-<%= f.file_field :images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+<%= f.file_field :images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %><br>
+<%= select_tag(:category_id, options_for_select(@categories), :prompt => "类别") %>
 <%= f.input :is_hidden %>
 <%= f.submit "Submit", disable_with: "Submiting...", class: "btn btn-default" %>
 <% end %>

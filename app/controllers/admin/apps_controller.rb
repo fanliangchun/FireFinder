@@ -12,11 +12,13 @@ class Admin::AppsController < ApplicationController
 
 	def new
 		@app = App.new
+		@categories = Category.all.map { |c| [c.name, c.id] }
 	end
 
 	def create
 		@app = App.new(app_params)
 		@app.user = current_user
+		@app.category_id = params[:category_id]
 		if @app.save
 
 			redirect_to admin_apps_path
@@ -26,9 +28,12 @@ class Admin::AppsController < ApplicationController
 	end
 
 	def edit
+		@categories = Category.all.map { |c| [c.name, c.id] }
 	end
 
 	def update
+		@app.category_id = params[:category_id]
+
 		if @app.update(app_params)
 			redirect_to admin_apps_path, notice: "App Updated"
 		else
@@ -54,7 +59,7 @@ class Admin::AppsController < ApplicationController
 	private
 
 	def app_params
-		params.require(:app).permit(:title, :description, :is_hidden, :image)
+		params.require(:app).permit(:title, :description, :is_hidden, :image, :category_id)
 	end
 
 	def find_app
