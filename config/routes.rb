@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :welcome
   resources :apps do
     resources :comments
     collection do

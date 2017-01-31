@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
 
 	<div class="jumbotron">
   <h1 class="display-3">FireFinder微信小程序</h1>
@@ -6,7 +6,7 @@
   <hr class="my-4">
   <p>来FireFinder找到想要的，让一切变得简单；来FireFinder分享，让生活变得美好！</p>
   <p class="lead">
-    <a class="btn btn-danger btn-lg" href="/apps/new" role="button">分享小程序</a>
+    <a class="btn btn-danger btn-lg" href="/apps/new" role="button"><i class="fa fa-users fa-fw" aria-hidden="true"></i>快乐分享</a>
   </p>
 </div>
 
@@ -39,12 +39,8 @@
 
 					<div class="col-md-8 message">
 						<h4><%= app.title %></h4>
-						<div>
 							<%= pluralize(app.votes.count, "vote") %>
-							<%= button_to('投上一票', upvote_app_path(app), method: :post, class: "btn btn-xs btn-success") %>
-							
-             </div>
-
+							<%= button_to('投上一票', upvote_app_path(app), method: :post, class: "btn btn-xs btn-success") %>            
 					</div>
 				</div>
 			</div>
