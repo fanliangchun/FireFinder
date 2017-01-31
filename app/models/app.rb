@@ -5,6 +5,10 @@ class App < ApplicationRecord
 	belongs_to :category
 	mount_uploader :image, ImageUploader
 
+	App.find_each do |app|
+  app.image.recreate_versions! if app.image?
+	end
+
 	def publish!
 		self.is_hidden = false
 		self.save

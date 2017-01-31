@@ -10,28 +10,46 @@
   </p>
 </div>
 
-	<div class="container">
 	
-		<div class="row text-center">
+	<div class="row">
 		<h1 class="current-category"><%= params[:category] %></h1>
 			<% if @apps.count == 0 %>
 				<h1>Hi!，该类别没有小程序哦！</h1>
 			<% else %>
+
 			<% @apps.each do |app| %>
-				<div class="col-xs-6 col-md-3">
+
+				<div class="col-md-4">
+
+					<div class="panel panel-default">
+             <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-4">
 
 					<%= link_to app_path(app) do  %>
 						
 						<% if app.image.present? %>
-							<%= image_tag(app.image.thumb.url, class: "thumbnail") %>
+							<%= image_tag(app.image.thumb.url, class: "thumbnail img_circle") %>
 						<% else %>
-							<%= image_tag("http://placehold.it/100x100&text=No Pic", class: "thumbnail") %>
+							<%= image_tag("http://placehold.it/15x15&text=No Pic", class: "thumbnail") %>
 						<% end %>
 						
 					<% end %>
-					<div class="text-center">
-						<h3><%= app.title %></h3>
 					</div>
+
+					<div class="col-md-8 message">
+						<h4><%= app.title %></h4>
+						  <button class="btn btn-primary btn-xs">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+               Follow</button>
+               <button class="btn btn-success btn-xs">
+               <i class="fa fa-envelope-o" aria-hidden="true"></i>
+               Message</button>
+					</div>
+					</div>
+					</div>
+					</div>
+
 			</div>
 			<% end %>
 		<% end %>
@@ -41,6 +59,7 @@
 	<div class="text-center">
       <%= will_paginate(@apps, renderer: BootstrapPagination::Rails) %>
   </div>
+</div>
 	
 
 

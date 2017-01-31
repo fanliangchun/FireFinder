@@ -8,11 +8,12 @@ class AppsController < ApplicationController
 			@apps = App.published.recent.paginate(:page => params[:page], :per_page => 8)
 		else
 			@category_id = Category.find_by(name: params[:category]).id
-			@apps = App.where(:category_id => @category_id).order("created_at DESC")
+			@apps = App.where(:category_id => @category_id).recent.paginate(:page => params[:page], :per_page => 8)
 		end
 	end
 
 	def show
+
 		@comments = @app.comments
 		if @app.is_hidden
 			flash[:warning] = "This app is already archieved."
@@ -57,7 +58,7 @@ class AppsController < ApplicationController
 
 	def search
     if @query_string.present?
-      search_result = App.ransack(@search_criteria).result(:distinct => true)
+      search_result = App.published.ransack(@search_criteria).result(:distinct => true)
       @apps = search_result.paginate(:page => params[:page], :per_page => 5 )
     end
   end
