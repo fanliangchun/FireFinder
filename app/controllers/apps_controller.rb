@@ -5,7 +5,7 @@ class AppsController < ApplicationController
 
 	def index
 		if params[:category].blank?
-			@apps = App.where(is_hidden: false).order("created_at DESC")
+			@apps = App.published.recent.paginate(:page => params[:page], :per_page => 8)
 		else
 			@category_id = Category.find_by(name: params[:category]).id
 			@apps = App.where(:category_id => @category_id).order("created_at DESC")
