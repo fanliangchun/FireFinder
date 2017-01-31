@@ -1,4 +1,5 @@
 <div class="container">
+<div class="jumbotron">
 <div class="row">
 	<div class="col-md-6">
 		<% if @app.image.present? %>
@@ -10,13 +11,16 @@
 
 	<div class="col-md-6">
 		<h2><%= @app.title %></h2>
+		<hr class="my-2">
 		<h4>类别：<%= @app.category.name %></h4>
+
+		<div>发表时间：<%= @app.created_at.strftime("%Y-%m-%d") %></div>
 			<div style="height: 100px;">
 				<p>
 					<%= simple_format(@app.description) %>
 				</p>
 			</div>
-			<div>发表时间：<%= @app.created_at.strftime("%Y-%m-%d") %></div><br>
+			<br>
 			<div class="btn-group btn-group-justified">
 				<% if current_user && current_user == @app.user %>
 					<%= link_to("编辑", edit_app_path(@app), class: "btn btn-xs btn-default") %>
@@ -26,27 +30,23 @@
 			</div>
 	</div>
 </div>
+</div>
+
 <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-12">
 
-<h2>Comments</h2>
-<% @app.comments.each do |comment| %>
-  <p>
-    <b>评论者:</b>
-    <%= comment.created_at.strftime("%Y-%m-%d") %>
-  </p>
- 
-  <p>
-    <b>评论:</b>
-
+	<div class="panel panel-success">
+  <div class="panel-heading"><h4>你言我语</h4></div>
+  <div class="panel-body">
+    <% @app.comments.each do |comment| %>
     <%= comment.content %>
-  </p>
-<% end %>
- 
-<h2>添加评论:</h2>
+		<% end %>
+  </div>
+</div>
+
 <%=  simple_form_for([@app, @app.comments.build]) do |f| %>
 
-	<%= f.input :content %>
+	<%= f.input :content, label: "品头论足"%>
 	<%= f.submit "提交评论", disable_with: "Submiting...", class: "btn btn-default" %>
 <% end %>
  

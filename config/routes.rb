@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     collection do
       get :search
     end
+
+    member do
+      post 'upvote'
+    end
   end
   root 'apps#index'
 

@@ -1,6 +1,6 @@
 class AppsController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-	before_action :find_app, only: [:show, :edit, :update, :destroy]
+	before_action :find_app, only: [:show, :edit, :update, :destroy, :upvote]
 	before_action :validate_search_key, only: [:search]
 
 	def index
@@ -54,6 +54,11 @@ class AppsController < ApplicationController
 	def destroy
 		@app.destroy
 		redirect_to apps_path, alert: "App Deleted"
+	end
+
+	def upvote
+		@app.votes.create
+		redirect_to(apps_path)
 	end
 
 	def search

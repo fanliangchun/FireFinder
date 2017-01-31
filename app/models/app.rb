@@ -3,6 +3,7 @@ class App < ApplicationRecord
 	belongs_to :user
 	has_many :comments
 	belongs_to :category
+	has_many :votes, dependent: :destroy
 	mount_uploader :image, ImageUploader
 
 	App.find_each do |app|

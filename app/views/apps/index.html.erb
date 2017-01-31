@@ -39,16 +39,16 @@
 
 					<div class="col-md-8 message">
 						<h4><%= app.title %></h4>
-						  <button class="btn btn-primary btn-xs">
-              <i class="fa fa-plus" aria-hidden="true"></i>
-               Follow</button>
-               <button class="btn btn-success btn-xs">
-               <i class="fa fa-envelope-o" aria-hidden="true"></i>
-               Message</button>
+						<div>
+							<%= pluralize(app.votes.count, "vote") %>
+							<%= button_to('投上一票', upvote_app_path(app), method: :post, class: "btn btn-xs btn-success") %>
+							
+             </div>
+
 					</div>
-					</div>
-					</div>
-					</div>
+				</div>
+			</div>
+			</div>
 
 			</div>
 			<% end %>
