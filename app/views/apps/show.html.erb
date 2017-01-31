@@ -20,7 +20,7 @@
 			<div class="btn-group btn-group-justified">
 				<% if current_user && current_user == @app.user %>
 					<%= link_to("编辑", edit_app_path(@app), class: "btn btn-xs btn-default") %>
-					<%= link_to("删除", app_path(@app), class: "btn btn-xs btn-default") %>
+					<%= link_to("删除", app_path(@app), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-xs btn-default") %>
 					
 				<% end %>
 			</div>
@@ -33,7 +33,7 @@
 <% @app.comments.each do |comment| %>
   <p>
     <b>评论者:</b>
-    <%= current_user.email %> / <%= comment.created_at.strftime("%Y-%m-%d") %>
+    <%= comment.created_at.strftime("%Y-%m-%d") %>
   </p>
  
   <p>

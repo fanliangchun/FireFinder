@@ -1,0 +1,31 @@
+<div>
+  <br>
+  <% if @apps.blank? %>
+    <br>
+    <h2 class="search-info-title">搜索信息不能为空，请输入关键字搜索</h2>
+  <% else %>
+    <h2 class="search-info-title"> 有关"<%= @query_string %>"的小程序信息 </h2>
+    <div class="search-result">
+
+      <div class="row apps-show0"></div>
+      <div class="app-table">
+        <% @apps.each do |app| %>
+        <div class="row apps-show">
+
+          <div class="col-md-12 col-lg-9 col-lg-offset-1">
+
+            <div class="pull-right">
+              发布时间：<%= app.created_at.to_date %>
+            </div>
+            <p ><%= link_to(render_highlight_content(app, @query_string), app_path(app)) %></p>
+
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="text-center">
+      <%= will_paginate(@apps, renderer: BootstrapPagination::Rails) %>
+    </div>
+  <% end %>
+</div>

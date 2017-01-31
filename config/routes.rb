@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :apps do
     resources :comments
+    collection do
+      get :search
+    end
   end
   root 'apps#index'
 

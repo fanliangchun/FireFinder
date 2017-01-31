@@ -25,8 +25,8 @@ body {
 
 .jumbotron {
 	padding : 100px 25px;
-	background-color: #6AB48A; /* Orange */
-    color: #ffffff;
+	
+  
 }
 
 .thumbnail {
@@ -34,3 +34,37 @@ body {
     box-shadow: none;
     margin-top: 60px;
 }
+
+/* Search on navbar */
+#search-id {
+  width: 300px;
+  padding-top: 7px;
+}
+
+.apps-show0 {
+  border-bottom: 1px dotted #CCC;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  font-family: PingFangSC-Medium, Arial, Helvetica, sans-serif;
+}
+
+.apps-show {
+  border-bottom: 1px dotted #CCC;
+  padding: 15px;
+  font-family: PingFangSC-Medium, Arial, Helvetica, sans-serif;
+}
+
+
+
+/* Search.html.erb
+*/
+
+.search-info-title {
+  font-family: PingFangSC-Medium, Arial, Helvetica, sans-serif;
+  color: #0d6ded;
+  font-size: 20px;
+  text-align: center;
+}
+
+

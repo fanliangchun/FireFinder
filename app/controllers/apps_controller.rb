@@ -1,6 +1,7 @@
 class AppsController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 	before_action :find_app, only: [:show, :edit, :update, :destroy]
+	before_action :validate_search_key, only: [:search]
 
 	def index
 		if params[:category].blank?
@@ -53,6 +54,26 @@ class AppsController < ApplicationController
 		@app.destroy
 		redirect_to apps_path, alert: "App Deleted"
 	end
+
+	def search
+    if @query_string.present?
+      search_result = App.ransack(@search_criteria).result(:distinct => true)
+      @apps = search_result.paginate(:page => params[:page], :per_page => 5 )
+    end
+  end
+
+
+  protected
+
+  def validate_search_key
+    @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?
+    @search_criteria = search_criteria(@query_string)
+  end
+
+
+  def search_criteria(query_string)
+    { :title_cont => query_string }
+  end
 
 	private
 
