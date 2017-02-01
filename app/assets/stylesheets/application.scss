@@ -27,17 +27,39 @@
     border-radius: 0;
     margin-bottom: 0;
     letter-spacing: 5px;
-}
+  }
+
 /* footer */
 .bg-4 { 
     background-color: #2f2f2f;
     color: #ffffff;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 30px;
 }
-.panel {
-  margin-top: 0;
+
+/* footer */
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    color: #ffffff;
+    background-color: #4b5a61;
 }
+
+html, body {
+    height: 100%;
+    margin-top: -5px;
+}
+
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -5px;
+}
+
 
 .container-fluid {
     padding-top: 50px;
@@ -89,35 +111,8 @@
 }
 
 .container-fluid .jumbotron{
-  padding-bottom: 70px;//内部的底部边距，这样按钮不会很靠近底部了
-  margin: 0 -15px 20px;//顶部margin为0，因此可以直接接着导航栏；左右margin为负15，因此可以顶到浏览器的边缘（抵消 container-fluid 的 15px 左右padding);底部margin为20，会跟下面的内容撑开距离
+  margin: -50px -15px 10px;//顶部margin为0，因此可以直接接着导航栏；左右margin为负15，因此可以顶到浏览器的边缘（抵消 container-fluid 的 15px 左右padding);底部margin为20，会跟下面的内容撑开距离
   border-radius: 0;//圆角为0
-}
-
-.title {
-  background-color: rgba(250, 250, 250, 0.39);//背景颜色含透明度
-  max-width: 500px;//最大宽度
-  margin-top: 200px;//和顶部拉开距离
-  margin-bottom: 0;//这样就可以紧接息面的描述文字
-  border-top-right-radius: 3px;//右上角圆边
-  border-top-left-radius: 3px;//左上角圆边
-}
-
-.jumbotron h1 h3, .jumbotron .h1 {
-    text-align: left;//文字左对齐
-    color: #222;  //字体颜色
-    padding: 30px 20px 0;//上50px，左右20px，下0
-}
-
-.jumbotron p {
-    margin: 0;//上下左右margin为0
-    font-size: 26px;//字体大小
-    max-width: 500px;//最大宽度
-    padding: 20px;//上下左右padding为20px
-    text-align:left;//文字左对齐
-    color: #222;//字体颜色
-    border-bottom-right-radius: 3px;//右下角圆边
-    border-bottom-left-radius: 3px;//左下角圆边
 }
 
 .btn-danger {
@@ -139,19 +134,12 @@
     width: 200px;//这里用指定宽度把btn拉得更长
 }
 
-/* 以下为自调节内容 */
-
-
-
-
-
-
+/* index Table 图片显示 */
 
 .thumbnail {
     border: 0 none;
     box-shadow: none;
     padding-top: 20px;
-
 }
 
 .lead {
@@ -163,6 +151,16 @@
   box-shadow: none;
   padding-top: 20px;
   padding-left: 60px;
+}
+
+/* 调整与jumotron的间隙 */
+.main {
+  margin-top: -65px;
+}
+
+/* 后台表格与navbar之间隙 */
+.admin {
+  margin-top: 50px;
 }
 
 /* Search on navbar */
@@ -185,12 +183,7 @@
   font-family: PingFangSC-Medium, Arial, Helvetica, sans-serif;
 }
 
-
-
-
-
-/* Search.html.erb
-*/
+/* Search.html.erb */
 
 .search-info-title {
   font-family: PingFangSC-Medium, Arial, Helvetica, sans-serif;

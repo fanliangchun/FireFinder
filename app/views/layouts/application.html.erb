@@ -13,8 +13,12 @@
   <body>
 
   	<%= render 'common/navbar'  %>
+    <div class="wrapper">
   	<%= render 'common/flashes' %>
   	<%= yield %>
+    </div>
+    <div class="push"></div>
+    <%= render 'common/footer' %>
   </body>
-  <%= render 'common/footer' %>
+  
 </html>

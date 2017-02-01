@@ -9,11 +9,12 @@
   </head>
 
   <body>
-  <div class="container">
-  	<%= render 'common/navbar'  %>
+
+  	<%= render 'common/navbar' %>
+    <div class="wrapper">
   	<%= render 'common/flashes' %>
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-2 admin">
         <ul class="nav nav-pills nav-stacked" style="padding-top: 30px;">
           <li class="active"><%= link_to("后台管理", admin_apps_path)  %></li>
           <li><%= link_to("新增小程序", new_admin_app_path) %></li>
@@ -23,11 +24,10 @@
       <div class="col-md-10">
         <%= yield %>
       </div>
+      </div>
     </div>
-
- 
-  	
-  </div>
-    <%= render 'common/footer' %>
+    <div class="push"></div>
+   <%= render 'common/footer' %>
   </body>
+  
 </html>
