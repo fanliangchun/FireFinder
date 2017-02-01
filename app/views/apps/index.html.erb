@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid text-center">
 
 	<div class="jumbotron">
   <h1 class="display-3">FireFinder微信小程序</h1>
@@ -9,8 +9,9 @@
     <a class="btn btn-danger btn-lg" href="/apps/new" role="button"><i class="fa fa-users fa-fw" aria-hidden="true"></i>快乐分享</a>
   </p>
 </div>
+</div>
 
-	
+<div class="container-fluid">
 	<div class="row">
 		<h1 class="current-category"><%= params[:category] %></h1>
 			<% if @apps.count == 0 %>
@@ -45,17 +46,16 @@
 				</div>
 			</div>
 			</div>
-
 			</div>
 			<% end %>
 		<% end %>
-
 	</div>
+</div>
 
 	<div class="text-center">
       <%= will_paginate(@apps, renderer: BootstrapPagination::Rails) %>
   </div>
-</div>
+
 	
 
 

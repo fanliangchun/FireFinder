@@ -1,59 +1,56 @@
 <div class="container-fluid">
-<div class="jumbotron">
-<div class="row">
-	<div class="col-md-6">
-		<% if @app.image.present? %>
-			<%= image_tag(@app.image.medium.url, class: "thumbnail") %>
-		<% else %>
-			<%= image_tag("http://placeholder.it/400x400&text=No Pic", class: "thumbnail") %>
-		<% end %>
-	</div>
+	<div class="jumbotron">
+		<div class="row">
+			<div class="col-md-6">
+				<% if @app.image.present? %>
+					<%= image_tag(@app.image.medium.url, class: "thumbnail") %>
+				<% else %>
+					<%= image_tag("http://placeholder.it/400x400&text=No Pic", class: "thumbnail") %>
+				<% end %>
+			</div>
 
-	<div class="col-md-6">
-		<h2><%= @app.title %></h2>
-		<hr class="my-2">
-		<h4>类别：<%= @app.category.name %></h4>
+			<div class="col-md-6">
+				<h2><%= @app.title %></h2>
+				<hr class="my-2">
+				<h4>类别：<%= @app.category.name %></h4>
 
-		<div>发表时间：<%= @app.created_at.strftime("%Y-%m-%d") %></div>
-			<div style="height: 100px;">
+				<div>发表时间：<%= @app.created_at.strftime("%Y-%m-%d") %></div>
+				<div style="height: 100px;">
 				<p>
 					<%= simple_format(@app.description) %>
 				</p>
+				</div>
+				<br>
+
+				<div class="btn-group btn-group-justified">
+					<% if current_user && current_user == @app.user %>
+						<%= link_to("编辑", edit_app_path(@app), class: "btn btn-xs btn-default") %>
+						<%= link_to("删除", app_path(@app), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-xs btn-default") %>
+					<% end %>
+				</div>
 			</div>
-			<br>
-			<div class="btn-group btn-group-justified">
-				<% if current_user && current_user == @app.user %>
-					<%= link_to("编辑", edit_app_path(@app), class: "btn btn-xs btn-default") %>
-					<%= link_to("删除", app_path(@app), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-xs btn-default") %>
-					
-				<% end %>
-			</div>
+		</div>
 	</div>
+	</div>
+<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-success">
+				  <div class="panel-heading"><h4>你言我语</h4></div>
+				  <div class="panel-body">
+				    <% @app.comments.each do |comment| %>
+				    <%= simple_format(comment.content) %>
+						<% end %>
+				  </div>
+				</div>
+
+				<div>
+				<%=  simple_form_for([@app, @app.comments.build]) do |f| %>
+
+				<%= f.input :content, label: "品头论足"%>
+				<%= f.submit "提交评论", disable_with: "Submiting...", class: "btn btn-default" %>
+				<% end %>
+				</div>
+ 			</div>
+		</div>
 </div>
-</div>
-
-<div class="row">
-	<div class="col-md-12">
-
-	<div class="panel panel-success">
-  <div class="panel-heading"><h4>你言我语</h4></div>
-  <div class="panel-body">
-    <% @app.comments.each do |comment| %>
-    <%= comment.content %>
-		<% end %>
-  </div>
-</div>
-
-<%=  simple_form_for([@app, @app.comments.build]) do |f| %>
-
-	<%= f.input :content, label: "品头论足"%>
-	<%= f.submit "提交评论", disable_with: "Submiting...", class: "btn btn-default" %>
-<% end %>
- 
-
-
-</div>
-
-</div>
-
-
