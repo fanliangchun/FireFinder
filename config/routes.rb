@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :welcome
+  resources :about
   resources :apps do
     resources :comments
     collection do
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
       post 'upvote'
     end
   end
-  root 'apps#index'
+  root 'welcome#index'
 
   namespace :admin do
   	resources :apps do
