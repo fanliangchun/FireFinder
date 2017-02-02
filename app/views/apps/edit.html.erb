@@ -14,5 +14,6 @@
 <%= f.select :category_id, @categories %>
 <%= f.input :is_hidden %>
 <%= f.submit "提交更改", disable_with: "Submiting...", class: "btn btn-danger" %>
+<%= link_to("取消更改", apps_path, class: "btn btn-danger") %>
 <% end %>
 </div>

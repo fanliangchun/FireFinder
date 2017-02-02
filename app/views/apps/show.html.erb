@@ -7,6 +7,14 @@
 				<% else %>
 					<%= image_tag("http://placeholder.it/350x350&text=No Pic", class: "thumbnail") %>
 				<% end %>
+
+					<div class="nav nav-pills">
+					<% if current_user && current_user == @app.user %>
+						<%= link_to("编辑程序", edit_app_path(@app), class: "btn btn-sm btn-danger") %>
+						<%= link_to("删除程序", app_path(@app), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger") %>
+						<%= link_to("返回首页", apps_path, class: "btn btn-sm btn-danger") %>
+					<% end %>
+				</div>
 			</div>
 
 			<div class="col-md-6">
@@ -22,12 +30,7 @@
 				</div>
 				<br>
 
-				<div class="btn-group btn-group-justified">
-					<% if current_user && current_user == @app.user %>
-						<%= link_to("编辑", edit_app_path(@app), class: "btn btn-xs btn-default") %>
-						<%= link_to("删除", app_path(@app), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-xs btn-default") %>
-					<% end %>
-				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -36,7 +39,7 @@
 <div class="container-fluid main">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="panel panel-success">
+				<div class="panel panel-warning">
 				  <div class="panel-heading"><h4>留言版</h4></div>
 				  <div class="panel-body">
 				  	<div class="trix-content">
