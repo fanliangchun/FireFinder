@@ -1,10 +1,9 @@
 
 
-<%= simple_form_for [:admin, @app], html: { multipart: true } do |f| %>
+<%= simple_form_for [:admin, @app] do |f| %>
 <%= f.input :title %>
 <%= f.input :description %>
-<%= f.label :images, as: :file %>
-<%= f.file_field :images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+<%= f.input :images, as: :file %>
 <%= select_tag(:category_id, options_for_select(@categories), :prompt => "类别") %>
 <%= f.input :is_hidden %>
 <%= f.submit "Submit", disable_with: "Submiting...", class: "btn btn-default" %>
