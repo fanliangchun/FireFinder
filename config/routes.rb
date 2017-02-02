@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 	devise_for :users
 	resources :about
-	resources :welcome
+	resources :welcome  do
+	end
+		
 	resources :apps do
 		member do
 			post :upvote
