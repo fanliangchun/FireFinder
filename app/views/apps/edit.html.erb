@@ -3,7 +3,7 @@
 
 <hr>
 
-<%= simple_form_for @app, html: { multipart: true } do |f| %>
+<%= simple_form_for @app do |f| %>
 <%= f.input :title, label: "程序全名" %>
 <%= f.input :description, label: "你的介绍" %>
 <% if @app.image.present? %>

@@ -1,8 +1,7 @@
-<%= simple_form_for @app, html: { multipart: true } do |f| %>
+<%= simple_form_for @app do |f| %>
 <%= f.input :title, label: "程序全名" %>
 <%= f.input :description, label: "你的介绍" %>
-<%= f.label :image, label: "上传图片", as: :file %>
-<%= f.file_field :images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %><br>
+<%= f.input :image, label: "上传图片", as: :file %><br>
 <%= select_tag(:category_id, options_for_select(@categories), :prompt => "所属类别") %>
 <%= f.input :is_hidden %>
 <%= f.submit "分享程序", disable_with: "Submiting...", class: "btn btn-danger" %>
