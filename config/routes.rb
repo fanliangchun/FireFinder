@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 	resources :about
 	resources :welcome
 	resources :apps do
+		member do
+			post :upvote
+		end
 		resources :comments
 		collection do
 			get :search
@@ -16,5 +19,6 @@ Rails.application.routes.draw do
 				post :publish
 				post :hide
 			end
+		end
 		end
 end
