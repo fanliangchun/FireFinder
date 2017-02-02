@@ -1,10 +1,10 @@
 <div class="container-fluid text-center">
 
-	<div class="jumbotron">
-  <h1 class="display-3">FireFinder微信小程序</h1>
-  <h3 class="lead">分享/发现/创造</h3>
-  <hr class="my-4">
-  <p>来FireFinder找到想要的，让一切变得简单；来FireFinder分享，让生活变得美好！</p>
+	<div class="jumbotron index-info">
+  <h1 class="display-3 title">FireFinder</h1>
+  <h3 class="lead slogan">分享/发现/创造微信小程序</h3>
+  <hr class="intro-divider">
+  <p class="slogan">来FireFinder发现，让一切变得简单<br>来FireFinder分享，让生活变得更好</p>
   <p class="lead">
     <a class="btn btn-danger btn-lg" href="/apps/new" role="button"><i class="fa fa-users fa-fw" aria-hidden="true"></i>快乐分享</a>
   </p>
@@ -25,23 +25,25 @@
 					<div class="panel panel-default">
              <div class="panel-body">
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-6">
 
 					<%= link_to app_path(app) do  %>
 						
 						<% if app.image.present? %>
 							<%= image_tag(app.image.thumb.url, class: "thumbnail img_circle") %>
 						<% else %>
-							<%= image_tag("http://placehold.it/15x15&text=No Pic", class: "thumbnail") %>
+							<%= image_tag("http://placehold.it/120x120&text=No Pic", class: "thumbnail") %>
 						<% end %>
 						
 					<% end %>
 					</div>
 
-					<div class="col-md-8 message">
+					<div class="col-md-6 message">
 						<h4><%= app.title %></h4>
-							<%= pluralize(app.votes.count, "vote") %>
-							<%= button_to('投上一票', upvote_app_path(app), method: :post, class: "btn btn-xs btn-success") %>            
+						<hr>
+						<h6>所属类别：<%= app.category.name %></h6>
+							<%= pluralize(app.votes.count, "like") %><br>
+							<%= button_to('投上一票', upvote_app_path(app), method: :post, class: "btn btn-xs btn-danger") %>            
 					</div>
 				</div>
 			</div>

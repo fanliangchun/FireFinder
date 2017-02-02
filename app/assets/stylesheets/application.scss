@@ -29,6 +29,44 @@
     letter-spacing: 5px;
   }
 
+  /* index Table 图片显示 */
+
+.thumbnail {
+    border: 0 none;
+    box-shadow: none;
+    padding-top: 20px;
+}
+
+.lead {
+  padding-top: 20px;
+}
+
+h1.title {
+  color: #464d51;
+}
+
+h3.slogan, p.slogan {
+  color: #464d51;
+
+}
+
+
+
+.message {
+  border: 0 none;
+  box-shadow: none;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.index-info {
+  background-image: url(http://7xjhux.com1.z0.glb.clouddn.com/2017-01-31-6vjpmymj5km-timothy-muza.jpg);
+  background-size: cover;
+}
+
+.show-info {
+  background-color: #fff;
+}
 
 
 /* footer */
@@ -38,6 +76,13 @@ footer {
     bottom: 0;
     width: 100%;
     height: 50px;
+    padding: 65px 0;
+    background-color: #ececec;
+    text-align: center;
+}
+
+footer a {
+      color: #464d5e;
 }
 
 html, body {
@@ -109,13 +154,13 @@ html, body {
 
 .btn-danger {
     color: #fff;//字体颜色
-    background-color: #EF6C00;//背景颜色
-    border-color: #EF6C00;//边框颜色
+    background-color: #1ecd97;//背景颜色
+    border-color: #1ecd97;//边框颜色
 }
 
 .btn-danger:hover {
-    background-color: #E65100;//鼠标放置在btn上的背景颜色
-    border-color: #E65100;//鼠标放置在btn上的边框颜色
+    background-color: #FF6F00;//鼠标放置在btn上的背景颜色
+    border-color: #FF6F00;//鼠标放置在btn上的边框颜色
 }
 
 .btn-lg, .btn-group-lg > .btn {
@@ -126,24 +171,7 @@ html, body {
     width: 200px;//这里用指定宽度把btn拉得更长
 }
 
-/* index Table 图片显示 */
 
-.thumbnail {
-    border: 0 none;
-    box-shadow: none;
-    padding-top: 20px;
-}
-
-.lead {
-  padding-top: 20px;
-}
-
-.message {
-  border: 0 none;
-  box-shadow: none;
-  padding-top: 20px;
-  padding-left: 60px;
-}
 
 /* 调整与jumotron的间隙 */
 .main {
@@ -179,7 +207,7 @@ html, body {
 
 .search-info-title {
   font-family: PingFangSC-Medium, Arial, Helvetica, sans-serif;
-  color: #0d6ded;
+  color: #1ecd97;
   font-size: 20px;
   text-align: center;
 }

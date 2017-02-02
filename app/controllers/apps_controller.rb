@@ -58,7 +58,7 @@ class AppsController < ApplicationController
 
 	def upvote
 		@app.votes.create
-		redirect_to(apps_path)
+		redirect_to :back
 	end
 
 	def search

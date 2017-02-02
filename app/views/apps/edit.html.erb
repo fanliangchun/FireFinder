@@ -1,16 +1,18 @@
+<div class="col-md-4 col-md-offset-4">
 <h1>编辑小程序</h1>
 
 <hr>
 
 <%= simple_form_for @app, html: { multipart: true } do |f| %>
-<%= f.input :title %>
-<%= f.input :description %>
+<%= f.input :title, label: "程序全名" %>
+<%= f.input :description, label: "你的介绍" %>
 <% if @app.image.present? %>
 	<span><strong>当前程序图片</strong></span><br>
 	<%= image_tag(@app.image.thumb.url) %>
 <% end %>
-<%= f.input :image, as: :file %>
+<%= f.input :image, label: "上传图片", as: :file %>
 <%= f.select :category_id, @categories %>
 <%= f.input :is_hidden %>
-<%= f.submit "Submit", disable_with: "Submiting...", class: "btn btn-default" %>
+<%= f.submit "提交更改", disable_with: "Submiting...", class: "btn btn-danger" %>
 <% end %>
+</div>

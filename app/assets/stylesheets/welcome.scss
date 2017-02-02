@@ -12,16 +12,7 @@ html {
     height: 100%;
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 500;
-}
+
 
 .topnav {
     font-size: 14px; 
@@ -33,11 +24,11 @@ h6 {
 }
 
 .intro-header {
-    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-    padding-bottom: 50px;
+    padding-top: -50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: -50px;
     text-align: center;
     color: #f8f8f8;
-    background: url(http://7xjhux.com1.z0.glb.clouddn.com/2017-01-31-landingpage1.jpg) no-repeat center center;
+    background: url(http://7xjhux.com1.z0.glb.clouddn.com/2017-01-31-zdcq3ikly6g-thom.jpg) no-repeat center center;
     background-size: cover;
 }
 
@@ -51,6 +42,7 @@ h6 {
     margin: 0;
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
     font-size: 5em;
+    color: #f8f8f8;
 }
 
 .intro-divider {
@@ -103,6 +95,11 @@ h6 {
     padding: 50px 0;
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
+}
+
+.img2 {
+    padding-top: 45px;
+    padding-left: 0;
 }
 
 .section-heading {
@@ -162,10 +159,7 @@ h6 {
     }
 }
 
-footer {
-    padding: 50px 0;
-    background-color: #f8f8f8;
-}
+
 
 p.copyright {
     margin: 15px 0 0;
