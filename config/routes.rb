@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 	devise_for :users
 	resources :about
-	resources :welcome  do
-	end
+	resources :welcome
+	root 'apps#index'
 		
 	resources :apps do
 		member do
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 			get :search
 		end
 	end
-	root 'welcome#index'
+
 
 	namespace :admin do
 		resources :apps do

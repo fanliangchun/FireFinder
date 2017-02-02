@@ -28,27 +28,28 @@
                 <div class="row">
                   <div class="col-md-6">
 
-					<%= link_to app_path(app) do  %>
-						
-						<% if app.image.present? %>
-							<%= image_tag(app.image.thumb.url, class: "thumbnail") %>
-						<% else %>
-							<%= image_tag("http://placehold.it/120x120&text=No Pic", class: "thumbnail") %>
-						<% end %>
-						
-					<% end %>
-					</div>
+								  <%= link_to app_path(app) do  %>
+									
+									<% if app.image.present? %>
+										<%= image_tag(app.image.thumb.url, class: "thumbnail") %>
+									<% else %>
+										<%= image_tag("http://placehold.it/120x120&text=No Pic", class: "thumbnail") %>
+									<% end %>
+									
+							    <% end %>
+								</div>
 
-					<div class="col-md-6 message">
-						<h4><%= app.title %></h4>
-						<hr>
-						<h6>所属类别：<%= app.category.name %></h6>
-							<%= pluralize(app.votes.count, "like") %><br>
-							<%= button_to('投上一票', upvote_app_path(app), method: :post, class: "btn btn-xs btn-danger") %>            
-					</div>
+								<div class="col-md-6 message">
+									<h4><%= app.title %></h4>
+									<hr>
+									<h6>所属类别：<%= app.category.name %></h6>
+										<%= pluralize(app.votes.count, "like") %><br>
+										<%= button_to('投上一票', upvote_app_path(app), method: :post, class: "btn btn-xs btn-danger") %>            
+								</div>
+
+						</div>
+			  	</div>
 				</div>
-			</div>
-			</div>
 			</div>
 			<% end %>
 		<% end %>
