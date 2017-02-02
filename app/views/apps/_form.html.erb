@@ -1,6 +1,6 @@
 <%= simple_form_for @app do |f| %>
 <%= f.input :title, label: "程序全名" %>
-<%= f.input :description, label: "你的介绍" %>
+<%= f.input :description, label: "你的介绍", :input_html => { :rows => 8} %>
 <%= f.input :image, label: "上传图片", as: :file %><br>
 <%= select_tag(:category_id, options_for_select(@categories), :prompt => "所属类别") %>
 <%= f.input :is_hidden %>

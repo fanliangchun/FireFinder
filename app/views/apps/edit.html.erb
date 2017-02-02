@@ -5,7 +5,7 @@
 
 <%= simple_form_for @app do |f| %>
 <%= f.input :title, label: "程序全名" %>
-<%= f.input :description, label: "你的介绍" %>
+<%= f.input :description, label: "你的介绍", :input_html => { :rows => 8} %>
 <% if @app.image.present? %>
 	<span><strong>当前程序图片</strong></span><br>
 	<%= image_tag(@app.image.thumb.url) %>

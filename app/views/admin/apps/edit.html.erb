@@ -3,7 +3,7 @@
 	<hr>
 	<%= simple_form_for @app, html: { multipart: true } do |f| %>
 	<%= f.input :title %>
-	<%= f.input :description %>
+	<%= f.input :description, :input_html => { :rows => 8} %>
 	<% if @app.image.present? %>
 		<span><strong>当前程序图片</strong></span><br>
 		<%= image_tag(@app.image.thumb.url) %>

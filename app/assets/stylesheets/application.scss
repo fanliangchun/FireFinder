@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
+ *= require md_simple_editor
  */
 
 @import "bootstrap-sprockets";
@@ -57,7 +59,7 @@ h3.slogan, p.slogan {
   border: 0 none;
   box-shadow: none;
   padding-top: 10px;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 .index-info {
